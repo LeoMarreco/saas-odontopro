@@ -1,0 +1,49 @@
+description: Project stack (Next 16, React 19, Tailwind 4, TypeScript 5, ESLint 9)
+alwaysApply: true
+---
+
+# OdontoPro project stack
+
+This project is a modern **Next.js** application using **React**, **Tailwind CSS**, **TypeScript**, and **ESLint**.
+
+## Main dependencies and versions
+
+- **Next.js**: `16.1.6`
+- **React**: `19.2.3`
+- **React DOM**: `19.2.3`
+- **Tailwind CSS**: `^4`
+- **@tailwindcss/postcss**: `^4`
+- **TypeScript**: `^5`
+- **ESLint**: `^9`
+- **eslint-config-next**: `16.1.6`
+- **@types/node**: `^20`
+- **@types/react**: `^19`
+- **@types/react-dom**: `^19`
+
+## General best practices for this stack
+
+- **Next.js (16.x)**  
+  - Prefer the **App Router** and server components whenever possible, using client components only when necessary (interactions, `useState`, etc.).  
+  - Keep **data logic and API calls** in server layers (API routes, server actions, server-side utility functions).  
+  - Use env vars with the `NEXT_PUBLIC_` prefix only for values that truly need to be exposed to the client.
+
+- **React (19.x)**  
+  - Use **function components** and **hooks**; avoid classes and legacy APIs.  
+  - Keep components small and focused, extracting **reusable logic into custom hooks**.  
+  - Avoid unnecessary global state; prefer minimal state lifting and composition.
+
+- **Tailwind CSS (4.x)**  
+  - Centralize design tokens (colors, spacing, typography) in the Tailwind configuration.  
+  - Prefer utility classes over custom CSS when it makes sense, to keep visual consistency.  
+  - Avoid overusing arbitrary values (`[value]`) repeatedly; when they are common, promote them to tokens/config.
+
+- **TypeScript (5.x)**  
+  - Keep the compiler in strict mode whenever possible (`strict: true`).  
+  - Avoid implicit `any`; prefer explicit types and TypeScript inference.  
+  - Properly type React component props and public functions, keeping reusable types in shared modules.
+
+- **ESLint (9.x) + eslint-config-next (16.x)**  
+  - Run `npm run lint` regularly (especially before commits) to ensure quality standards.  
+  - Prefer **fixing code** over disabling rules; when disabling is really needed, clearly document `eslint-disable`.  
+  - Keep rules aligned with best practices for accessibility, performance, and the recommended Next.js conventions.
+
