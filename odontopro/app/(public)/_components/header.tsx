@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { LogIn, Menu } from "lucide-react";
 import { 
         Sheet, 
         SheetContent, 
@@ -14,8 +14,9 @@ import Link from "next/link";
 import { Button } from "../../../components/ui/button";
 
 export function Header() {
-
     const [isOpen, setIsOpen] = useState(false);
+
+    const session = null;
 
     const navItems = [
         {href: "#profissionais", label: "Profissionais"},
@@ -31,12 +32,26 @@ export function Header() {
             asChild
             className="bg-transparent hover:bg-transparent text-black shadow-none"
             >
-                <Link href={item.href}>
+                <Link href={item.href} className="text-base">
                 {item.label}
                 </Link>
             </Button>
 
         ))}
+
+        {session ? (
+            <Link href="/dashboard"
+            className="flex items-center justify-center gap-2"
+            >
+
+                Acessar Clínica
+            </Link>
+        ) : (
+            <Button>
+                <LogIn />
+                Portal da Clínica
+            </Button>
+        )}
         </>
     )
 
