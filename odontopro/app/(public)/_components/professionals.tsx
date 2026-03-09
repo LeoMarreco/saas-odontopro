@@ -9,6 +9,8 @@ import {
   } from "@/components/ui/card";
 import Image from "next/image";
 import fotoImg from '../../../public/foto1.png';
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function Profissionals() {
     return (
@@ -21,15 +23,15 @@ export function Profissionals() {
                 <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
                 >
                     
-                    <Card>
-                        <CardContent>
+                    <Card className="overflow-hidden p-0">
+                        <CardContent className="p-0">
                             <div>
                                 <div className="relative h-48">
                                     <Image 
                                       src={fotoImg}
                                       alt="foto da clinica"
                                       fill
-                                      className="object-contain"
+                                      className="object-cover"
                                     />
                                 </div>
                             </div>
@@ -37,21 +39,30 @@ export function Profissionals() {
                             <div className="p-4 space-y-4">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <h3>
+                                        <h3 className="font-semibold">
                                             Clínica centro
                                         </h3>
-                                        <p>
-                                            Rua x, centro, campo Grande - MS
+                                        <p className="text-sm text-gray-500">
+                                            Rua x, centro, Campo Grande - MS
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500">
-                                </div>
+                                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
 
+                                <Link 
+                                href="/clinica/123"
+                                className="w-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center 
+                                py-2 rounded-md text-sm md:text-base font-medium"
+                                >
+                                    Agendar Horários
+                                    <ArrowRight className="ml-2"/>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
+
+                    
                 </section>
             </div>
         </section>
