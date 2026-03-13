@@ -47,14 +47,10 @@ export function SidebarDashboard({ children }: { children: React.ReactNode }){
                 <div className="mb-6 mt-4">
                     {!isCollapsed && (
                         <Image 
-                        src={logoImg}
-                        alt="Logo do odontopro"
-                        priority
-                        quality={100}
-                        style={{
-                            width: 'auto',
-                            height: 'auto'
-                        }}
+                            src={logoImg}
+                            alt="Logo do odontopro"
+                            priority
+                            quality={100}
                         />
                     )} 
                 </div>
@@ -65,6 +61,45 @@ export function SidebarDashboard({ children }: { children: React.ReactNode }){
 
                  {!isCollapsed ? <ChevronLeft className="w-12 h-12" /> : <ChevronRight className="w-12 h-12" />}
                 </Button>
+
+                {/* Mostrar apenas quando a sidebar está recolhida */}
+
+                {isCollapsed && (
+                    <nav className="flex flex-col gap-1 overflow-hidden mt-2">
+                        <SidebarLink 
+                                href="/dashboard"
+                                label="Agendamentos"
+                                pathname={pathname}
+                                isCollapsed={isCollapsed}
+                                icon={<CalendarCheck2 className="w-6 h-6"/>}
+                            />
+
+                            <SidebarLink 
+                                href="/dashboard/services"
+                                label="Serviços"
+                                pathname={pathname}
+                                isCollapsed={isCollapsed}
+                                icon={<Folder className="w-6 h-6"/>}
+                            />
+                                
+                            <SidebarLink
+                                href="/dashboard/profile"
+                                label="Meu Pefil"
+                                pathname={pathname}
+                                isCollapsed={isCollapsed}
+                                icon={<Settings className="w-6 h-6"/>}
+                            />
+
+                            <SidebarLink 
+                                href="/dashboard/plans"
+                                label="Planos"
+                                pathname={pathname}
+                                isCollapsed={isCollapsed}
+                                icon={<Banknote className="w-6 h-6"/>}
+                            />
+                    </nav>
+                )}
+
 
                 <Collapsible open={!isCollapsed}>
                     <CollapsibleContent>
