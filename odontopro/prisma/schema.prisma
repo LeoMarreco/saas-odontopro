@@ -92,6 +92,7 @@ model User {
   status                    Boolean @default(true)
   timeZone                  String?
   stripe_customer_id        String?
+  times                     String[] @default([])
 
 
   subscriptions  Subscription?  // Reacionamento onde um user pode ter 1 assinatura
